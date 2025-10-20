@@ -9,7 +9,7 @@ public class DBUtil {
 
     private static Properties props = new Properties();
 
-    // Bloco estático para carregar o .env
+    // bloco para carregar o .env
     static {
         try (FileInputStream fis = new FileInputStream(".env")) {
             props.load(fis);
@@ -18,8 +18,6 @@ public class DBUtil {
             System.exit(1);
         }
     }
-
-    // Método principal para obter a conexão
     public static Connection getConnection() throws SQLException {
         String host = props.getProperty("DB_HOST", "localhost");
         String port = props.getProperty("DB_PORT", "3306");

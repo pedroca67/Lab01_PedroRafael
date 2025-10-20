@@ -11,24 +11,23 @@ public class ProdutoReader {
 
             try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
-                // LEITURA 1
                 System.out.println("[PRODUTO-READER] Lendo estoque (Leitura 1)...");
                 ResultSet rs1 = pstmt.executeQuery();
                 if (rs1.next()) {
                     System.out.println("[PRODUTO-READER] Estoque lido (1): " + rs1.getInt("estoque"));
                 }
 
-                System.out.println("[PRODUTO-READER] Aguardando 5 segundos (esperando Writer)...");
-                Thread.sleep(5000); // 5 segundos
+                // *** MUDANÇA AQUI ***
+                System.out.println("[PRODUTO-READER] Aguardando 10 segundos (esperando Writer)...");
+                Thread.sleep(10000); // 10 segundos
 
-                // LEITURA 2 (Para testar Dirty Read ou Non-Repeatable Read)
                 System.out.println("[PRODUTO-READER] Lendo estoque (Leitura 2)...");
                 ResultSet rs2 = pstmt.executeQuery();
                 if (rs2.next()) {
                     System.out.println("[PRODUTO-READER] Estoque lido (2): " + rs2.getInt("estoque"));
                 }
 
-                conn.commit(); // Finaliza a transação do leitor
+                conn.commit();
 
             } catch (Exception e) {
                 conn.rollback();
