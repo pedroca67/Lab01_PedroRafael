@@ -44,11 +44,11 @@ public class DBUtil {
     // Mapeia o nome do .env para os valores inteiros do JDBC
     private static int mapIsolationLevel(String levelName) {
         switch (levelName.toUpperCase()) {
-            case "READ_UNCOMMITTED":
+            case "READ UNCOMMITTED":
                 return Connection.TRANSACTION_READ_UNCOMMITTED;
-            case "READ_COMMITTED":
+            case "READ COMMITTED":
                 return Connection.TRANSACTION_READ_COMMITTED;
-            case "REPEATABLE_READ":
+            case "REPEATABLE READ":
                 return Connection.TRANSACTION_REPEATABLE_READ;
             case "SERIALIZABLE":
                 return Connection.TRANSACTION_SERIALIZABLE;
