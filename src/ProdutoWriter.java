@@ -6,7 +6,7 @@ public class ProdutoWriter {
     public static void main(String[] args) {
         try (Connection conn = DBUtil.getConnection()) {
 
-            String sql = "UPDATE Produto SET estoque = 40 WHERE id = 1";
+            String sql = "UPDATE Produto SET estoque = 40 WHERE id = 1"; //muda o valor
 
             try {
                 conn.setAutoCommit(false);
@@ -16,7 +16,7 @@ public class ProdutoWriter {
                     pstmt.executeUpdate();
                     System.out.println("[PRODUTO-WRITER] Estoque atualizado (pendente).");
 
-                    // Espera antes do commit para criar a condição de leitura concorrente
+                    // Onde ocorre a espera antes do commit da outra transação
                     System.out.println("[PRODUTO-WRITER] Aguardando 5 segundos antes do COMMIT...");
                     Thread.sleep(5000);
 

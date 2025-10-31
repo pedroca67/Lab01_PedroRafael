@@ -6,7 +6,7 @@ public class VendaWriter {
     public static void main(String[] args) {
         try (Connection conn = DBUtil.getConnection()) {
 
-            // CORRIGIDO: Inserindo 'produto_id' e 'quantidade', que são as colunas existentes.
+            //  inserindo 'produto_id' e 'quantidade', que são as colunas existentes.
             String sql = "INSERT INTO Venda (produto_id, quantidade) VALUES (1, 5)";
 
             try (PreparedStatement pstmt = conn.prepareStatement(sql)) {

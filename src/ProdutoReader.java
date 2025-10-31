@@ -12,7 +12,7 @@ public class ProdutoReader {
             try {
                 conn.setAutoCommit(false);
 
-                System.out.println("[PRODUTO-READER] Lendo estoque (Leitura 1)...");
+                System.out.println("[PRODUTO-READER] Lendo estoque (Leitura 1)..");
                 try (PreparedStatement pstmt1 = conn.prepareStatement(sql)) {
                     ResultSet rs1 = pstmt1.executeQuery();
                     if (rs1.next()) {
